@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--使用angular的时候需要指定angular的作用范围-->
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>anglular的指令</title>
+</head>
+<body>
+<!--遍历数组，将数组中的每个成员的值显示到li标签中-->
+   <ul ng-init="ary=['小沈阳','刘能','赵四','宋小宝','潘长江','宋小宝','潘长江']">
+       <!--ng-repeat遍历数组，取出数组中的每个成员-->
+       <!--需要重复创建哪个标签，就将ng-repeat指令放在哪个标签中即可-->
+       <!--<li ng-repeat="item in ary">{{item}}</li>-->
+       <!--$index 对应的就是每个成员的下标值-->
+       <!--<li ng-repeat="item in ary">{{$index +':'+item}}</li>-->
+       <!--(index,item) in ary 前面下标，后面对应的值-->
+       <!--<li ng-repeat="(index,item) in ary">{{index +':'+item}}</li>-->
+      <!-- <li ng-repeat="(index,item) in ary">{{index +':'+ary[index]}}</li>-->
+       <!--<li ng-repeat="(index,item) in ary">{{index +':'+ary[$index]}}</li>-->
+       <!--track by 遍历数组时防止数组中出现重复的元素-->
+       <li ng-repeat="item in ary track by $index">
+
+           <span>{{ary[$index]}}</span>
+           <span>{{item}}</span>
+           <!-- 判断是第一个最后一个-->
+           <span>{{$first}}</span>
+           <span>{{$last}}</span>
+           <!-- 判断是否是奇偶-->
+           <span>{{$even}}</span>
+           <span>{{$odd}}</span>
+
+
+
+       </li>
+
+   </ul>
+</body>
+</html>
+<script src="angular.js"></script>
+
+<script>
+
+    /*
+        当引入angular.js文件后会自动生成一个全局的angular
+        通过模块：创建控制器，自定义服务，指令
+
+    */
+    console.log(angular);
+</script>
