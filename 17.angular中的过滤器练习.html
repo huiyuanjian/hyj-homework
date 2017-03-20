@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--使用angular的时候需要指定angular的作用范围-->
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>angular中的全局变量</title>
+    <style>
+        .sty1{
+            background: green;
+
+        }
+        .sty2{
+            background: red;
+
+        }
+    </style>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+</head>
+<body>
+请输入过滤器条件:<input type="text" ng-model="query"/>
+
+<table class="table table-bordered" ng-init="persons=[{name:'张三',age:20,score:80},{name:'李四',age:30,score:90},{name:'王二麻子',age:30,score:100},{name:'赵四',age:40,score:91},{name:'刘六',age:10,score:60}];order='age';flag=false">
+    <tr>
+        <td>序号</td>
+        <!-- 点击姓名的时候能够排序(切换升序和降序)-->
+        <td ng-click="flag=!flag;order='name'">姓名</td>
+        <td ng-click="flag=!flag;order='age'">年龄</td>
+        <td>分数</td>
+    </tr>
+    <tr ng-repeat="person in persons | orderBy:order :flag | filter:query track by $index">
+        <td>{{$index+1}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.age}}</td>
+        <td>{{person.score}}</td>
+    </tr>
+</table>
+
+
+</body>
+</html>
+<script src="angular.js"></script>
+
+<script>
+
+    /*
+        当引入angular.js文件后会自动生成一个全局的angular
+        通过模块：创建控制器，自定义服务，指令
+
+
+        githup本地文件推送到网上
+        git add .
+        git commit -m'添加了1.c文件'
+        git push origin master
+
+
+        git pull origin master 下载远程代码到本地
+
+        远程:
+
+        本地
+
+        1.将本地的仓库和远程仓库进行关联
+        git clone 远程仓库的地址
+
+        关联的信息
+        git remote -v
+
+        在push之前先pull
+
+
+
+
+    */
+
+    console.log(new Date());
+</script>
