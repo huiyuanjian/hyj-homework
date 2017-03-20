@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--使用angular的时候需要指定angular的作用范围-->
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>anglular的指令</title>
+</head>
+<body>
+    <!--ng-model 一般配合表单input标签一起使用-->
+    <!--创建两个input标签和一个p标签,一个input用来输入价格，一个用来输入数量 p标签用来显示总价 -->
+    <p>单价：<input type="text" ng-model="price"/></p>
+    <p>数量：<input type="text" ng-model="num"/></p>
+    <p>总价：{{(price*num)? price*num:""}}</p>
+
+</body>
+</html>
+<script src="angular.js"></script>
+
+<script>
+
+    /*
+        当引入angular.js文件后会自动生成一个全局的angular
+        通过模块：创建控制器，自定义服务，指令
+
+    */
+    console.log(angular);
+</script>
